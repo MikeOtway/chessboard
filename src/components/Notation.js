@@ -4,26 +4,25 @@ import styled from 'styled-components/macro';
 import { COLORS } from '../constants';
 
 const Notation = ({ row, column, shade }) => {
-  const letters = 'abcdefgh';
-  const isColumn = column === 0;
-  const isRow = row === 7;
+  const isColumn = column === 'a';
+  const isRow = row === 1;
   const isBottomLeftSquare = isColumn && isRow;
 
   if (isBottomLeftSquare) {
     return (
       <>
-        <Number shade={shade}>{8 - row}</Number>
-        <Letter shade={shade}>{letters[column]}</Letter>
+        <Number shade={shade}>{row}</Number>
+        <Letter shade={shade}>{column}</Letter>
       </>
     );
   }
 
   if (isColumn) {
-    return <Number shade={shade}>{8 - row}</Number>;
+    return <Number shade={shade}>{row}</Number>;
   }
 
   if (isRow) {
-    return <Letter shade={shade}>{letters[column]}</Letter>;
+    return <Letter shade={shade}>{column}</Letter>;
   }
 
   return null;

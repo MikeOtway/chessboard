@@ -3,10 +3,16 @@ import styled from 'styled-components/macro';
 
 import { COLORS } from '../constants';
 import Notation from './Notation';
+import Piece from './Piece';
 
-const Square = ({ row, column, shade }) => {
+const Square = ({ row, column, shade, position }) => {
+  const key = column + row;
+  const piece = position[key];
   return (
     <Wrapper shade={shade}>
+      {/* {column}
+      {row} */}
+      <Piece piece={piece} />
       <Notation row={row} column={column} shade={shade} />
     </Wrapper>
   );

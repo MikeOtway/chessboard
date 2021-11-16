@@ -2,24 +2,28 @@ import React from 'react';
 import styled from 'styled-components/macro';
 
 import Square from './Square';
+import { COLUMNS } from '../constants';
 
 const isEven = (num) => num % 2 === 0;
+const isEverySecondLetter = (letter) => 'aceg'.split('').includes(letter);
 const squareShade = (row, column) =>
-  (isEven(row) && isEven(column)) || (!isEven(row) && !isEven(column))
+  (isEven(row) && isEverySecondLetter(column)) ||
+  (!isEven(row) && !isEverySecondLetter(column))
     ? 'light-square'
     : 'dark-square';
 
-const Row = ({ row }) => {
+const Row = ({ row, position }) => {
   return (
     <Wrapper>
-      {[...Array(8)].map((_, column) => {
-        const key = row * 8 + column;
+      {COLUMNS.map((column) => {
+        const key = column + row;
         return (
           <Square
             key={key}
             row={row}
             column={column}
             shade={squareShade(row, column)}
+            position={position}
           />
         );
       })}

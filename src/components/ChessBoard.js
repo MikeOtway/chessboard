@@ -2,13 +2,26 @@ import React from 'react';
 import styled from 'styled-components/macro';
 
 import Row from './Row';
+import {
+  fenToObject,
+  isValidFen,
+  isValidPositionObject,
+} from '../utils/chessUtils';
 
-export default function ChessBoard() {
+const convertPosition = (position) => {
+  if (isValidFen(position)) return fenToObject(position);
+  if (isValidPositionObject(position)) return position;
+};
+
+export default function ChessBoard({ position }) {
+  const curentPosition = convertPosition(position);
+  console.log(curentPosition);
+
   return (
     <Wrapper>
       <Board>
-        {[...Array(8)].map((_, row) => {
-          return <Row key={row} row={row} />;
+        {[8, 7, 6, 5, 4, 3, 2, 1].map((row) => {
+          return <Row key={row} row={row} position={curentPosition} />;
         })}
       </Board>
     </Wrapper>
