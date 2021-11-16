@@ -7,16 +7,16 @@ import {
   isValidFen,
   isValidPositionObject,
 } from '../utils/chessUtils';
+import { POSITIONS } from '../constants';
 
 const convertPosition = (position) => {
+  if (position === 'start') return fenToObject(POSITIONS.start);
   if (isValidFen(position)) return fenToObject(position);
   if (isValidPositionObject(position)) return position;
 };
 
 export default function ChessBoard({ position }) {
   const curentPosition = convertPosition(position);
-  console.log(curentPosition);
-
   return (
     <Wrapper>
       <Board>

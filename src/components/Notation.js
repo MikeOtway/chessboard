@@ -3,9 +3,10 @@ import styled from 'styled-components/macro';
 
 import { COLORS } from '../constants';
 
-const Notation = ({ row, column, shade }) => {
+const Notation = ({ square, shade }) => {
+  const [column, row] = square.split('');
   const isColumn = column === 'a';
-  const isRow = row === 1;
+  const isRow = row === '1';
   const isBottomLeftSquare = isColumn && isRow;
 
   if (isBottomLeftSquare) {

@@ -5,15 +5,12 @@ import { COLORS } from '../constants';
 import Notation from './Notation';
 import Piece from './Piece';
 
-const Square = ({ row, column, shade, position }) => {
-  const key = column + row;
-  const piece = position[key];
+const Square = ({ square, shade, position }) => {
+  const piece = position[square];
   return (
     <Wrapper shade={shade}>
-      {/* {column}
-      {row} */}
       <Piece piece={piece} />
-      <Notation row={row} column={column} shade={shade} />
+      <Notation square={square} shade={shade} />
     </Wrapper>
   );
 };

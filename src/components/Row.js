@@ -16,12 +16,11 @@ const Row = ({ row, position }) => {
   return (
     <Wrapper>
       {COLUMNS.map((column) => {
-        const key = column + row;
+        const square = column + row;
         return (
           <Square
-            key={key}
-            row={row}
-            column={column}
+            key={square}
+            square={square}
             shade={squareShade(row, column)}
             position={position}
           />
