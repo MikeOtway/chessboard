@@ -3,19 +3,17 @@ import styled from 'styled-components/macro';
 
 import { COLORS } from '../constants';
 import Notation from './Notation';
-import Piece from './Piece';
 
-const Square = ({ square, shade, position }) => {
-  const piece = position[square];
+const Square = ({ square, shade, children }) => {
   return (
-    <Wrapper shade={shade}>
-      <Piece piece={piece} />
+    <Cell shade={shade}>
+      {children}
       <Notation square={square} shade={shade} />
-    </Wrapper>
+    </Cell>
   );
 };
 
-const Wrapper = styled.div`
+const Cell = styled.div`
   width: 60px;
   height: 60px;
   display: flex;

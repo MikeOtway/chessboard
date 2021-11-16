@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import Square from './Square';
 import { COLUMNS } from '../constants';
+import Square from './Square';
+import Piece from './Piece';
 
 const isEven = (num) => num % 2 === 0;
 const isEverySecondLetter = (letter) => 'aceg'.split('').includes(letter);
@@ -17,13 +18,11 @@ const Row = ({ row, position }) => {
     <Wrapper>
       {COLUMNS.map((column) => {
         const square = column + row;
+        const piece = position[square];
         return (
-          <Square
-            key={square}
-            square={square}
-            shade={squareShade(row, column)}
-            position={position}
-          />
+          <Square key={square} square={square} shade={squareShade(row, column)}>
+            <Piece piece={piece} />
+          </Square>
         );
       })}
     </Wrapper>
