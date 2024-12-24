@@ -1,6 +1,4 @@
-import React from 'react';
-
-const WhiteKing = () => {
+const WhiteQueen = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -65,4 +63,4 @@ const WhiteKing = () => {
   );
 };
 
-export default WhiteKing;
+export default WhiteQueen;

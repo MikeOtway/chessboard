@@ -1,9 +1,13 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import { COLORS } from '../constants';
 
-const Notation = ({ square, shade }) => {
+interface NotationProps {
+  square: string
+  shade: string
+}
+
+const Notation = ({ square, shade }: NotationProps) => {
   const [column, row] = square.split('');
   const isColumn = column === 'a';
   const isRow = row === '1';
@@ -29,7 +33,7 @@ const Notation = ({ square, shade }) => {
   return null;
 };
 
-const Text = styled.div`
+const Text = styled.div<{ shade: string; }>`
   position: absolute;
   font-size: 10px;
   color: ${(props) =>

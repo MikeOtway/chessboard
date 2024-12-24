@@ -1,10 +1,15 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import { COLORS } from '../constants';
 import Notation from './Notation';
 
-const Square = ({ square, shade, children }) => {
+interface SquareProps {
+  square: string
+  shade: string
+  children: React.ReactNode
+}
+
+const Square = ({ square, shade, children }: SquareProps) => {
   return (
     <Cell shade={shade}>
       {children}
@@ -13,7 +18,7 @@ const Square = ({ square, shade, children }) => {
   );
 };
 
-const Cell = styled.div`
+const Cell = styled.div<{ shade: string; }>`
   width: 60px;
   height: 60px;
   display: flex;

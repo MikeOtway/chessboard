@@ -1,6 +1,4 @@
-import React from 'react';
-
-const WhiteBishop = () => {
+const BlackBishop = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +23,7 @@ const WhiteBishop = () => {
       >
         <g
           style={{
-            fill: '#ffffff',
+            fill: '#000000',
             stroke: '#000000',
             strokeLinecap: 'butt',
           }}
@@ -38,7 +36,7 @@ const WhiteBishop = () => {
           d="M 17.5,26 L 27.5,26 M 15,30 L 30,30 M 22.5,15.5 L 22.5,20.5 M 20,18 L 25,18"
           style={{
             fill: 'none',
-            stroke: '#000000',
+            stroke: '#ffffff',
             strokeLinejoin: 'miter',
           }}
         />
@@ -47,4 +45,4 @@ const WhiteBishop = () => {
   );
 };
 
-export default WhiteBishop;
+export default BlackBishop;

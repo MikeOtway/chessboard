@@ -1,4 +1,3 @@
-import React from 'react';
 import WhitePawn from './WhitePawn';
 import WhiteRook from './WhiteRook';
 import WhiteKnight from './WhiteKnight';

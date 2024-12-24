@@ -1,21 +1,24 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import styled from "styled-components";
 
-import Row from './Row';
+import Row from "./Row";
 import {
   fenToObject,
   isValidFen,
   isValidPositionObject,
-} from '../utils/chessUtils';
-import { POSITIONS } from '../constants';
+} from '../utils/chessUtils'
+import { POSITIONS } from "../constants";
 
-const convertPosition = (position) => {
-  if (position === 'start') return fenToObject(POSITIONS.start);
+const convertPosition = (position: string) => {
+  if (position === "start") return fenToObject(POSITIONS.start);
   if (isValidFen(position)) return fenToObject(position);
   if (isValidPositionObject(position)) return position;
 };
 
-export default function ChessBoard({ position }) {
+interface ChessBoardProps {
+  position: string;
+}
+
+export default function ChessBoard({ position }: ChessBoardProps) {
   const curentPosition = convertPosition(position);
   return (
     <Wrapper>

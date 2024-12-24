@@ -1,7 +1,8 @@
 import { COLUMNS } from '../constants';
 
-const isString = (s) => typeof s === 'string';
-export const fenToObject = (fen) => {
+const isString = (s: any) => typeof s === 'string';
+
+export const fenToObject = (fen: string) => {
   if (!isValidFen(fen)) return false;
 
   // cut off any move, castling, etc info from the end
@@ -36,7 +37,7 @@ export const fenToObject = (fen) => {
   return position;
 };
 
-export const isValidFen = (fen) => {
+export const isValidFen = (fen: string) => {
   if (!isString(fen)) return false;
 
   // cut off any move, castling, etc info from the end
@@ -60,7 +61,7 @@ export const isValidFen = (fen) => {
   return true;
 };
 
-export const isValidPositionObject = (position) => {
+export const isValidPositionObject = (position: any) => {
   if (position === null || typeof position !== 'object') return false;
 
   for (let i in position) {
@@ -73,13 +74,10 @@ export const isValidPositionObject = (position) => {
   return true;
 };
 
-const isValidSquare = (square) =>
-  isString(square) && square.search(/^[a-h][1-8]$/) !== -1;
+const isValidSquare = (square: string) => square.search(/^[a-h][1-8]$/) !== -1;
+const isValidPieceCode = (code: string) => code.search(/^[bw][KQRNBP]$/) !== -1;
 
-const isValidPieceCode = (code) =>
-  isString(code) && code.search(/^[bw][KQRNBP]$/) !== -1;
-
-const expandFenEmptySquares = (fen) => {
+const expandFenEmptySquares = (fen: string) => {
   return fen
     .replace(/8/g, '11111111')
     .replace(/7/g, '1111111')
@@ -90,7 +88,7 @@ const expandFenEmptySquares = (fen) => {
     .replace(/2/g, '11');
 };
 
-const fenToPieceCode = (piece) => {
+const fenToPieceCode = (piece: string) => {
   // black piece
   if (piece.toLowerCase() === piece) {
     return 'b' + piece.toUpperCase();
